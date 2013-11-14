@@ -74,12 +74,12 @@ newaction = Actions.new(selection, nil, nil, nil, nil)
 
 case key
 when 'g'
-  newaction.to_google
+  fork { newaction.to_google }
 when 't'
-  newaction.to_translate
+  fork { newaction.to_translate }
 when 's'
-  newaction.to_stackoverflow
+  fork { newaction.to_stackoverflow }
 when 'e'
-  newaction.to_editor
+  fork { newaction.to_editor }
 end
 
