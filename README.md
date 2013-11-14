@@ -1,5 +1,5 @@
 # VRobot
- vrobot is used to pass text data to other program using xclip,
+ vrobot is used to pass selected text to other programs,
  you just need to select the text you want from everywhere and press your installed shortcut to apply the action.
 
 ## HowTo use it:
