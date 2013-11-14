@@ -2,9 +2,10 @@
  vrobot is used to pass text data to other program using xclip,
  you just need to select the text you want from everywhere and press your installed shortcut to apply the action.
 
-##HowTo use it:
- download it to your /usr/local/bin/vrobot
- then install your shortcut from your system settings
+## HowTo use it:
+* download it to your /usr/local/bin/vrobot.
+* install your shortcut from your system settings.
+* just select any text you want to apply action on it and then press shortcut for the action you want. 
 
 ## Features
 
