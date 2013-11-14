@@ -51,7 +51,7 @@ class Actions
     %x( #{@editor} #{fname} )
   end
   ############################################################
-  # You ca define More actions here as suitable for your use #
+  # You can define More actions here as suitable for your use #
   # Also all requests to add new actions idea to this code   #
   #                       are welcomed                       #
   ############################################################
