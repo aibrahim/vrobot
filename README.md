@@ -4,7 +4,11 @@
 
 ## HowTo use it:
 * download it to your /usr/local/bin/vrobot.
-* install your shortcut from your system settings.
+* create 4 shortcuts:
+  * create new keyboard shortcut to run command 'vrobot.rb -g' ==> will open google and search selected text
+  * create new keyboard shortcut to run command 'vrobot.rb -t' ==> will open google translate and translate selected text
+  * create new keyboard shortcut to run command 'vrobot.rb -s' ==> will open stackoverflow and search selected text
+  * create new keyboard shortcut to run command 'vrobot.rb -e' ==> will open editor with selected text
 * just select any text you want to apply action on it and then press shortcut for the action you want. 
 
 ## Features
