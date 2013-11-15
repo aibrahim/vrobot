@@ -50,6 +50,11 @@ class Actions
     end
     %x( #{@editor} #{fname} )
   end
+  
+  def to_wikipedia
+    url = %{ http://en.wikipedia.org/wiki/"#{@text}" }
+    runprog(@browser, url)
+  end
   ############################################################
   # You can define More actions here as suitable for your use #
   # Also all requests to add new actions idea to this code   #
@@ -65,6 +70,7 @@ loop {
     when '-t' then  ARGV.shift; key = 't'
     when '-s' then  ARGV.shift; key = 's'
     when '-e' then  ARGV.shift; key = 'e'
+    when '-w' then  ARGV.shift; key = 'w'
     else break
     end 
 }
@@ -81,5 +87,7 @@ when 's'
   fork { newaction.to_stackoverflow }
 when 'e'
   fork { newaction.to_editor }
+when 'w'
+  fork { newaction.to_wikipedia }
 end
 
