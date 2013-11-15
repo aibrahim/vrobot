@@ -4,14 +4,14 @@
 #license  GPLv2 
 #mail     abdullahibra@gmail.com
 
-#need xclip installed
 def get_selection
-  `xclip -o`
+  return `xclip -o` if RUBY_PLATFORM =~ /darwin/
+  return `pbpaste`  if RUBY_PLATFORM =~ /linux/
 end
 
 #run program with argument
 def runprog(prog, arg)
-	%x( #{prog} #{arg} )
+  %x( #{prog} #{arg} )
 end
 
 class Actions
@@ -60,42 +60,35 @@ class Actions
     url = %{ http://www.facebook.com/search.php?q="#{@text}" }
     runprog(@browser, url)
   end
-  ############################################################
+  #############################################################
   # You can define More actions here as suitable for your use #
-  # Also all requests to add new actions idea to this code   #
-  #                       are welcomed                       #
-  ############################################################
+  # Also all requests to add new actions idea to this code    #
+  #                       are welcomed                        #
+  #############################################################
 end
 
-key = nil
+key = []
 
 loop { 
-    case ARGV[0]
-    when '-g' then  ARGV.shift; key = 'g'
-    when '-t' then  ARGV.shift; key = 't'
-    when '-s' then  ARGV.shift; key = 's'
-    when '-e' then  ARGV.shift; key = 'e'
-    when '-w' then  ARGV.shift; key = 'w'
-    when '-f' then  ARGV.shift; key = 'f'
-    else break
-    end 
+  case ARGV[0]
+  when '-g' then  ARGV.shift; key << 'g'
+  when '-t' then  ARGV.shift; key << 't'
+  when '-s' then  ARGV.shift; key << 's'
+  when '-e' then  ARGV.shift; key << 'e'
+  when '-w' then  ARGV.shift; key << 'w'
+  when '-f' then  ARGV.shift; key << 'f'
+  when nil
+    break
+  end 
 }
 
 selection = get_selection()
 newaction = Actions.new(selection, nil, nil, nil, nil)
 
-case key
-when 'g'
-  fork { newaction.to_google }
-when 't'
-  fork { newaction.to_translate }
-when 's'
-  fork { newaction.to_stackoverflow }
-when 'e'
-  fork { newaction.to_editor }
-when 'w'
-  fork { newaction.to_wikipedia }
-when 'f'
-  fork { newaction.to_facebook }
-end
+fork { newaction.to_google }         if key.include? 'g'
+fork { newaction.to_translate }      if key.include? 't'
+fork { newaction.to_stackoverflow }  if key.include? 's'
+fork { newaction.to_editor }         if key.include? 'e'
+fork { newaction.to_wikipedia }      if key.include? 'w'
+fork { newaction.to_facebook }       if key.include? 'f'
 
