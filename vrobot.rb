@@ -5,8 +5,8 @@
 #mail     abdullahibra@gmail.com
 
 def get_selection
-  return `xclip -o` if RUBY_PLATFORM =~ /darwin/
-  return `pbpaste`  if RUBY_PLATFORM =~ /linux/
+  return `xclip -o` if RUBY_PLATFORM =~ /linux/
+  return `pbpaste`  if RUBY_PLATFORM =~ /darwin/
 end
 
 #run program with argument
