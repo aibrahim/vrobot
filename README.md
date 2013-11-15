@@ -22,6 +22,10 @@
 * pass selection text to wikipedia
 * pass selection text to facebook
 
+## Supported Systems
+* Linux
+* Mac
+
 # Note
   you can set your prefered browser and editor and destination and source languages you want to use in translation.
   new feature ideas are will be welcomed, email me at abdullahibra@gmail.com
