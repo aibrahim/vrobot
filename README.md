@@ -10,6 +10,7 @@
   * create new keyboard shortcut to run command 'vrobot.rb -s' ==> will open stackoverflow and search selected text
   * create new keyboard shortcut to run command 'vrobot.rb -e' ==> will open editor with selected text
   * create new keyboard shortcut to run command 'vrobot.rb -w' ==> will open wikipedia with selected text
+  * create new keyboard shortcut to run command 'vrobot.rb -f' ==> will open facebook with selected text
 * just select any text you want to apply action on it and then press shortcut for the action you want. 
 
 ## Features
@@ -19,6 +20,7 @@
 * pass selection text to stackoverflow
 * pass selection text to editor
 * pass selection text to wikipedia
+* pass selection text to facebook
 
 # Note
   you can set your prefered browser and editor and destination and source languages you want to use in translation.

@@ -55,6 +55,11 @@ class Actions
     url = %{ http://en.wikipedia.org/wiki/"#{@text}" }
     runprog(@browser, url)
   end
+  
+  def to_facebook
+    url = %{ http://www.facebook.com/search.php?q="#{@text}" }
+    runprog(@browser, url)
+  end
   ############################################################
   # You can define More actions here as suitable for your use #
   # Also all requests to add new actions idea to this code   #
@@ -71,6 +76,7 @@ loop {
     when '-s' then  ARGV.shift; key = 's'
     when '-e' then  ARGV.shift; key = 'e'
     when '-w' then  ARGV.shift; key = 'w'
+    when '-f' then  ARGV.shift; key = 'f'
     else break
     end 
 }
@@ -89,5 +95,7 @@ when 'e'
   fork { newaction.to_editor }
 when 'w'
   fork { newaction.to_wikipedia }
+when 'f'
+  fork { newaction.to_facebook }
 end
 
